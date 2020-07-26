@@ -29,6 +29,9 @@ module.exports = {
 </script>
 
 <style scoped>
+  div {
+    border: solid 1px #ccc;
+  }
   pre {
     margin-left: 20px;
   }
