@@ -1,5 +1,5 @@
 <template>
-  <v-container :style="containerStyle">
+  <v-container id="container" :style="containerStyle">
     <pre v-for="item in items" :key="item.id">{{JSON.stringify(item, Set_toJSON, 2)}}</pre>
   </v-container>
 </template>
@@ -29,7 +29,7 @@ module.exports = {
 </script>
 
 <style scoped>
-  div {
+  #container {
     border: solid 1px #ccc;
   }
   pre {
