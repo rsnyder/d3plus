@@ -6,16 +6,21 @@
   </head>
 
   <body>
-    <div id="my-app">
-      <my-component></my-component>
+    <div id="app">
+      <custom-component :items="items" :width="500" :height="500"/>
     </div>
 
     <script type="text/javascript">
       new Vue({
-        el: '#my-app',
+        el: '#app',
         components: {
-          'my-component': httpVueLoader('components/my-component.vue')
-        }
+          'custom-component': httpVueLoader('components/Hello.vue')
+        },
+        data: () => ({
+          items: [
+            {id: 'item-0'}
+          ]
+        })
       })
     </script>
   </body>
