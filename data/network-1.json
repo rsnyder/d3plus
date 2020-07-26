@@ -1,0 +1,135 @@
+{
+  "nodes": [
+    {
+      "id": 1,
+      "name": "Anna Maria Luisa de' Medici"
+    },
+    {
+      "id": 2,
+      "name": "Maria Dorothea Wilhelmina Freiin von Metternich Angelelli"
+    },
+    {
+      "id": 3,
+      "name": "Pietro Neri Lorenzo, Marquis Angelelli"
+    },
+    {
+      "id": 4,
+      "name": "Maria Vittoria of Savoy"
+    },
+    {
+      "id": 5,
+      "name": "Victor Amadeus of Savoy, Prince of Carigon"
+    },
+    {
+      "id": 6,
+      "name": "Louis XV, King of France"
+    },
+    {
+      "id": 7,
+      "name": "Cardinal Fluery"
+    },
+    {
+      "id": 8,
+      "name": "Louis Henri, Duke of Bourbon"
+    },
+    {
+      "id": 9,
+      "name": "Johanna Isabella von Bouscheidt (von Schaesberg)"
+    },
+    {
+      "id": 10,
+      "name": "Caspar Franz Edmund von Bourscheidt"
+    },
+    {
+      "id": 11,
+      "name": "Charles III Philip, Elector Palatine"
+    },
+    {
+      "id": 12,
+      "name": "Baroness Massimiliana von Moltke"
+    },
+    {
+      "id": 13,
+    "name": "Charles VI, Holy Roman Emperor"
+    }
+  ],
+  "links": [
+
+    {
+      "source": 1,
+      "target": 2
+    },
+    {
+      "source": 1,
+      "target": 3
+    },
+    {
+      "source": 1,
+      "target": 4
+    },
+    {
+      "source": 1,
+      "target": 6
+    },
+    {
+      "source": 1,
+      "target": 9
+    },
+    {
+      "source": 1,
+      "target": 11
+    },
+    {
+      "source": 1,
+      "target": 12
+    },
+    {
+      "source": 2,
+      "target": 3
+    },
+    {
+      "source": 2,
+      "target": 4
+    },
+    {
+      "source": 4,
+      "target": 5
+    },
+    {
+      "source": 4,
+      "target": 7
+    },
+    {
+      "source": 4,
+      "target": 8
+    },
+    {
+      "source": 5,
+      "target": 6
+    },
+    {
+      "source": 6,
+      "target": 7
+    },
+    {
+      "source": 6,
+      "target": 8
+    },
+    {
+      "source": 9,
+      "target": 10
+    },
+    {
+      "source": 9,
+      "target": 11
+    },
+    {
+      "source": 10,
+      "target": 11
+    },
+    {
+      "source": 12,
+      "target": 13
+    }
+  ]
+}
