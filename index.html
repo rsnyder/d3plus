@@ -7,7 +7,7 @@
 
   <body>
     <div id="app">
-      <custom-component :items="items" :width="500" :height="500"/>
+      <custom-component :items="items" :width="width" :height="height"/>
     </div>
 
     <script type="text/javascript">
@@ -19,7 +19,9 @@
         data: () => ({
           items: [
             {id: 'item-0'}
-          ]
+          ],
+          width: 500,
+          height: 500
         })
       })
     </script>
