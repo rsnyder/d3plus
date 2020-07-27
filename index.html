@@ -24,15 +24,16 @@
       new Vue({
         el: '#app',
         components: {
-          'custom-component': httpVueLoader('https://visual-essays.app/component/rsnyder/d3plus/components/D3PlusNetwork.vue')
-        },
+            // 'custom-component': httpVueLoader('https://visual-essays.app/component/rsnyder/d3plus/components/D3PlusNetwork.vue')
+            'custom-component': httpVueLoader('components/D3PlusNetwork.vue')
+       },
         data: () => ({
           items: [
             {id: 'item-0',
             url: 'data/network-1.json'}
           ],
-          width: 500,
-          height: 500
+          width: 1000,
+          height: 1000
         })
       })
     </script>

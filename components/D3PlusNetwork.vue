@@ -21,13 +21,12 @@ module.exports = {
     mounted() {
       fetch(this.items[0].url).then(resp => resp.json())
       .then(data => {
-
         new d3plus.Network()
           .select('#datavis')
           .links(data.links)
           .nodes(data.nodes)
           .render()
-      })
+        })
     }
   }
 </script>
