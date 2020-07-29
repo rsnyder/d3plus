@@ -37,12 +37,14 @@ module.exports = {
     methods: {
         init() {
             fetch(this.items[0].url).then(resp => resp.json())
-            .then(links => {
+            .then(data => {
+                // convert regular network json file into form used by Rings viz
+                let links = data.links.map(link => { return { source: data.nodes[link.source].id, target: data.nodes[link.target].id } })
                 new d3plus.Rings()
                     .select('#datavis')
                     .links(links)
                     .label(d => d.id)
-                    .center('alpha')
+                    .center("Anna Maria Luisa de' Medici")
                     .render()
             })
         }
