@@ -19,9 +19,13 @@
     <script type="text/javascript">
 
         const components = {
-            IIIFSideBySide: '',
-            D3Network: 'data/miserables.json',
-            D3PlusNetwork: 'data/network-1.json'
+            IIIFSideBySide: [{ 
+                id: 'item-0',
+                url1: 'https://iiif.visual-essays.app/images/88b53551f91eaeea450ff6c196b4fd5f9fd6955b356d616543af591f/info.json',
+                url2: 'https://iiif.visual-essays.app/images/a58d7d72db0b59290c54d57e414d88d892efee1b88cc639ee0f6dc3f/info.json'
+            }],
+            D3Network: [{ id: 'item-0', url: 'data/miserables.json' }],
+            D3PlusNetwork: [{ id: 'item-0', url: 'data/network-1.json' }]
         }
 
         Vue.mixin({
@@ -61,7 +65,7 @@
                 'custom-component': httpVueLoader(`components/${component}.vue`)
             },
             data: () => ({
-                items: [{ id: 'item-0', url: components[component] }],
+                items: components[component],
                 width: 500,
                 height: 500
             })
