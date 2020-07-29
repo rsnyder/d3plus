@@ -40,29 +40,6 @@ module.exports = {
                 { }).addTo(map)
 
             L.control.sideBySide(layer1, layer2).addTo(map)
-        },
-        load(url, callback) {
-            let e
-            if (url.split('.').pop() === 'js') {
-                e = document.createElement('script')
-                e.src = url
-                e.type='text/javascript'
-            } else {
-                e = document.createElement('link')
-                e.href = url
-                e.rel='stylesheet'
-            }
-            e.addEventListener('load', callback)
-            document.getElementsByTagName('head')[0].appendChild(e)
-        },
-        loadDependencies(dependencies, i, callback) {
-            this.load(dependencies[i], () => {
-                if (i < dependencies.length-1) {
-                    this.loadDependencies(dependencies, i+1, callback) 
-                } else {
-                    callback()
-                }
-            })
         }
     }
 }

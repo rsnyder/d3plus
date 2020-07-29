@@ -6,26 +6,9 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
-    <!--
-    <link href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css" rel="stylesheet">
-    -->
-    <script src="https://unpkg.com/vue"></script>
     <script src="https://unpkg.com/vue"></script>
     <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
-    <!--
-    <script src="https://d3plus.org/js/d3.min.js"></script>
-    <script src="https://d3plus.org/js/d3plus.min.js"></script>
-    <script src="https://d3plus.org/js/d3plus-network.v0.6.full.min.js"></script>
-    -->
     <script src="https://unpkg.com/http-vue-loader"></script>
-    <script src="https://d3js.org/d3.v4.min.js"></script>
-    <!--
-    <script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdn.rawgit.com/mejackreed/Leaflet-IIIF/v2.0.1/leaflet-iiif.js"></script>
-    <script src="https://cdn.rawgit.com/digidem/leaflet-side-by-side/6ea4567fe8d1b3e6ea3b0e9ca05d311f5be125a3/leaflet-side-by-side.js"></script>
-    -->
-
   </head>
 
   <body>
@@ -34,18 +17,51 @@
     </div>
 
     <script type="text/javascript">
-        // const componentURL = 'components/D3Network.vue'
-        const componentURL = 'components/IIIFSideBySide.vue'
-        const dataURL = 'data/miserables.json'
+
+        const components = {
+            IIIFSideBySide: '',
+            D3Network: 'data/miserables.json',
+            D3PlusNetwork: 'data/network-1.json'
+        }
+
+        Vue.mixin({
+            methods: { 
+                load(url, callback) {
+                    let e
+                    if (url.split('.').pop() === 'js') {
+                        e = document.createElement('script')
+                        e.src = url
+                        e.type='text/javascript'
+                    } else {
+                        e = document.createElement('link')
+                        e.href = url
+                        e.rel='stylesheet'
+                    }
+                    e.addEventListener('load', callback)
+                    document.getElementsByTagName('head')[0].appendChild(e)
+                },
+                loadDependencies(dependencies, i, callback) {
+                    this.load(dependencies[i], () => {
+                        if (i < dependencies.length-1) {
+                            this.loadDependencies(dependencies, i+1, callback) 
+                        } else {
+                            callback()
+                        }
+                    })
+                }
+            }
+        })
+
+        const component = window.location.search.split('component=').pop() || 'D3PlusNetwork'
+        console.log(`loading component: ${component}`)
 
         new Vue({
             el: '#app',
             components: {
-                // 'custom-component': httpVueLoader('https://visual-essays.app/component/rsnyder/d3plus/components/D3PlusNetwork.vue')
-                'custom-component': httpVueLoader(componentURL)
+                'custom-component': httpVueLoader(`components/${component}.vue`)
             },
             data: () => ({
-                items: [{ id: 'item-0', url: dataURL }],
+                items: [{ id: 'item-0', url: components[component] }],
                 width: 500,
                 height: 500
             })
