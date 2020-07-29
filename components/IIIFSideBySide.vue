@@ -32,12 +32,8 @@ module.exports = {
         init() {
             const map = L.map('map', { center: [0, 0], crs: L.CRS.Simple, zoom: 0 })
 
-            var layer1 = L.tileLayer.iiif(
-                'https://iiif.visual-essays.app/images/88b53551f91eaeea450ff6c196b4fd5f9fd6955b356d616543af591f/info.json', 
-                { fitBounds: false }).addTo(map)
-            var layer2 = L.tileLayer.iiif(
-                'https://iiif.visual-essays.app/images/a58d7d72db0b59290c54d57e414d88d892efee1b88cc639ee0f6dc3f/info.json',
-                { }).addTo(map)
+            var layer1 = L.tileLayer.iiif(this.items[0].url1, { fitBounds: false }).addTo(map)
+            var layer2 = L.tileLayer.iiif(this.items[0].url2).addTo(map)
 
             L.control.sideBySide(layer1, layer2).addTo(map)
         }
